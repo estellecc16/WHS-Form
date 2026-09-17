@@ -46,7 +46,7 @@
 
         <div>
             <label for="name">Name</label>
-            <input id="name" type="text">
+            <input id="name" type="text" maxlength="50">
         </div>
 
         <div>
@@ -54,13 +54,15 @@
             <input
                 id="phone"
                 type="tel"
+                inputmode="numeric"
+                maxlength="16"
                 placeholder="0412 345 678">
             <small id="phoneError"></small>
         </div>
 
         <div class="full">
             <label for="address">Address</label>
-            <input id="address" type="text">
+            <input id="address" type="text" maxlength="100">
         </div>
 
         <div class="full">
@@ -71,6 +73,7 @@
             <input
             id="email"
             type="text"
+            maxlength="100"
             placeholder="name@example.com">
 
             <small id="emailError"></small>
@@ -87,12 +90,12 @@
 
         <div>
             <label for="company">Company name</label>
-            <input id="company" type="text">
+            <input id="company" type="text" maxlength="100">
         </div>
 
         <div>
             <label for="ceo">CEO</label>
-            <input id="ceo" type="text">
+            <input id="ceo" type="text" maxlength="100">
         </div>
 
         <div class="full">
