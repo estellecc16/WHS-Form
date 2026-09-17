@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workplace Health and Safety Form</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script
+    src="https://www.google.com/recaptcha/api.js"
+    async
+    defer>
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>Workplace Health and Safety Form</h1>
+        <p>
+            This form collects personal, business and workplace health and safety information, including details about your organisation's safety policy and Health and Safety Representative (HSR).
+        </p>
+        <p>Please complete the form below.</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="instructions">
+        <strong>Instructions</strong>
+        <p>
+            Fields marked with <span class="required">*</span> are mandatory.
+            Additional fields will appear based on your answers.
+        </p>
+    </div>
+
+  <form id="safetyForm" novalidate>
+
+    <section>
+      <h2>Personal Details</h2>
+
+      <div class="grid">
+
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text">
+        </div>
+
+        <div>
+            <label for="phone">Phone</label>
+            <input
+                id="phone"
+                type="tel"
+                placeholder="0412 345 678">
+            <small id="phoneError"></small>
+        </div>
+
+        <div class="full">
+            <label for="address">Address</label>
+            <input id="address" type="text">
+        </div>
+
+        <div class="full">
+            <label for="email">
+                Email <span class="required">*</span>
+            </label>
+
+            <input
+            id="email"
+            type="text"
+            placeholder="name@example.com">
+
+            <small id="emailError"></small>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <h2>Business Details</h2>
+
+      <div class="grid">
+
+        <div>
+            <label for="company">Company name</label>
+            <input id="company" type="text">
+        </div>
+
+        <div>
+            <label for="ceo">CEO</label>
+            <input id="ceo" type="text">
+        </div>
+
+        <div class="full">
+
+            <label for="abn">
+                ABN <span class="required">*</span>
+            </label>
+
+          <div class="abn-row">
+            <!-- Mask the ABN during entry to reduce accidental visual exposure and improve privacy. -->
+            <input
+            id="abn"
+            type="password"
+            inputmode="numeric"
+            maxlength="11"
+            placeholder="11-digit ABN">
+
+            <button
+              id="toggleAbn"
+              type="button"
+              class="secondary">
+              Show
+            </button>
+
+          </div>
+
+          <small id="abnError"></small>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+        <h2>Health and Safety</h2>
+
+        <p class="question">
+            Does your company have a health and safety policy?
+        </p>
+
+        <label class="radio">
+            <input
+            type="radio"
+            name="policy"
+            value="yes">
+            Yes
+        </label>
+
+        <label class="radio">
+            <input
+            type="radio"
+            name="policy"
+            value="no">
+            No
+        </label>
+
+
+        <div
+            id="policyUpload"
+            class="conditional"
+            hidden>
+
+            <label for="policyFile">
+                Attach policy <span class="required">*</span>
+            </label>
+            <span id="fileHint" class="hint">
+                Accepted file types: PDF, DOC and DOCX. Maximum file size: 5 MB.
+            </span>
+            <input
+            id="policyFile"
+            type="file"
+            accept=".pdf,.doc,.docx">
+
+            <small id="fileError"></small>
+
+        </div>
+
+
+    <p class="question">
+        Does your company have a Health and Safety Representative (HSR)?
+    </p>
+    <p class="hint">
+        An HSR is a worker elected to represent colleagues on health and safety matters.
+    </p>
+
+    <label class="radio">
+    <input
+        type="radio"
+        name="hsr"
+        value="yes">
+        Yes
+    </label>
+
+    <label class="radio">
+    <input
+        type="radio"
+        name="hsr"
+        value="no">
+    No
+    </label>
+
+
+    <div
+    id="hsrArea"
+    class="conditional"
+    hidden>
+
+    <label for="hsrDetails">
+        HSR details <span class="required">*</span>
+    </label>
+
+    <textarea id="hsrDetails"></textarea>
+
+    <small id="hsrError"></small>
+
+    </div>
+
+    </section>
+
+
+    <section>
+        <h2>Submit</h2>
+        
+        <!-- reCAPTCHA test key used for demo only; production requires server-side token verification. -->
+        <div
+            class="g-recaptcha"
+            data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI">
+        </div>
+
+        <button type="submit">
+            Submit form
+        </button>
+
+        <p id="formMessage"></p>
+
+    </section>
+
+  </form>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
